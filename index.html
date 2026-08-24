@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Atefeh Rezaei</title>
+  <style>
+    body {
+      background: white;
+      font-family: Georgia, serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: #222;
+      margin: 0;
+      padding-bottom: 8px;
+    }
+    a { color: #2255aa; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Layout wrapper ── */
+    #layout-wrapper {
+      display: flex;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    /* ── Sidebar ── */
+    #layout-menu {
+      width: 220px;
+      min-width: 220px;
+      background: #f6f6f6;
+      border-right: 1px solid #dddddd;
+      padding: 10px 8px 30px 8px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      box-sizing: border-box;
+    }
+
+    .menu-category {
+      font-size: 1.0em;
+      font-weight: bold;
+      color: #527bbd;
+      border-bottom: 1px solid #aaaaaa;
+      padding: 6px 0 2px 4px;
+      margin-top: 14px;
+    }
+    .menu-category:first-child { margin-top: 4px; }
+
+    .menu-item {
+      padding: 2px 0 2px 10px;
+      font-size: 0.93em;
+    }
+    .menu-item a {
+      color: #222;
+      display: block;
+      line-height: 1.7em;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .menu-item a:hover { color: #527bbd; }
+    .menu-item a.current { font-weight: normal; color: #527bbd; font-size: 0.88em; border-left: 3px solid #527bbd; padding-left: 4px; border-bottom: 1px dotted #a8c4e0; }
+    
+    /* ── Main content ── */
+    #layout-content {
+      flex: 1;
+      padding: 14px 24px 30px 24px;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+
+    /* ── Pages ── */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ── Headings ── */
+    h1 {
+      font-size: 1.3em;
+      color: #527bbd;
+      border-bottom: 1px solid #527bbd;
+      padding-bottom: 3px;
+      margin: 20px 0 8px 0;
+    }
+    h1:first-child { margin-top: 4px; }
+    h2 {
+      font-size: 1.1em;
+      color: #527bbd;
+      border-bottom: 1px solid #aaaaaa;
+      padding-bottom: 2px;
+      margin: 18px 0 6px 0;
+    }
+    h3 {
+      font-size: 1.0em;
+      font-weight: bold;
+      margin: 14px 0 4px 0;
+    }
+
+    /* ── Bio block ── */
+    .bio-block {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .bio-block img {
+      width: 130px;
+      flex-shrink: 0;
+      border: 1px solid #ccc;
+    }
+    .bio-block p { margin: 0; font-size: 15px; line-height: 1.8; }
+
+    /* ── Lists ── */
+    ul { padding-left: 22px; margin: 4px 0 10px 0; }
+    ul li { margin-bottom: 7px; font-size: 15px; }
+    ol { padding-left: 24px; margin: 4px 0 10px 0; }
+    ol li { margin-bottom: 9px; font-size: 15px; }
+
+
+
+    /* ── Student recruitment box ── */
+.student-recruitment {
+  background-color: #f3f3f3;
+  border: 1px solid #d8d8d8;
+  border-left: 4px solid #999;
+  border-radius: 4px;
+  color: #555;
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.7;
+  margin: 14px 0 20px 0;
+  padding: 12px 16px;
+}
+
+    /* ── Footer ── */
+    div.footer {
+      font-size: 0.75em;
+      color: #aaa;
+      border-top: 1px solid #ddd;
+      padding-top: 6px;
+      margin-top: 30px;
+    }
+
+    /* ── Mobile hamburger button ── */
+    #menu-toggle {
+      display: none;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 1000;
+      background: #527bbd;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    /* ── Responsive ── */
+@media (max-width: 680px) {
+      #menu-toggle { display: none; }
+    }
+
+    
+  </style>
+</head>
+<body>
+
+<!-- Mobile menu toggle -->
+<button id="menu-toggle" onclick="toggleMenu()">&#9776;</button>
+
+<div id="layout-wrapper">
+
+  <!-- ════════ SIDEBAR ════════ -->
+  <div id="layout-menu">
+
+    <!-- Part 1: Atefeh Rezaei -->
+    <div class="menu-category">Atefeh Rezaei</div>
+    <div class="menu-item"><a href="#" onclick="showPage('home');return false;" id="nav-home" class="current">Home</a></div>
+    <div class="menu-item"><a href="#" onclick="showPage('about');return false;" id="nav-about">About me</a></div>
+
+    <!-- Part 2: Publications -->
+    <div class="menu-category">Publications</div>
+    <div class="menu-item"><a href="#" onclick="showPage('journals');return false;" id="nav-journals">Journals</a></div>
+    <div class="menu-item"><a href="#" onclick="showPage('conferences');return false;" id="nav-conferences">Conferences</a></div>
+    <div class="menu-item"><a href="#" onclick="showPage('bookchapters');return false;" id="nav-bookchapters">Book Chapters &amp; Theses</a></div>
+
+    <!-- Part 3: Teaching -->
+    <div class="menu-category">Teaching</div>
+    <div class="menu-item"><a href="#" onclick="showPage('courses');return false;" id="nav-courses">Courses</a></div>
+
+    <!-- Part 4: Students -->
+    <div class="menu-category">Students</div>
+    <div class="menu-item"><a href="#" onclick="showPage('members');return false;" id="nav-members">Members</a></div>
+
+    <!-- Part 5: Links -->
+    <div class="menu-category"> Links</div>
+    <div class="menu-item"><a href="https://scholar.google.com/citations?hl=en&user=ghAYlK8AAAAJ&view_op=list_works&sortby=pubdate" target="_blank">Google Scholar</a></div>
+    <div class="menu-item"><a href="https://www.linkedin.com/in/atefeh--rezaei/" target="_blank">LinkedIn</a></div>
+
+  </div><!-- /sidebar -->
+
+
+  <!-- ════════ MAIN CONTENT ════════ -->
+  <div id="layout-content">
+
+
+    <!-- ══ HOME ══ -->
+    <div id="page-home" class="page active">
+      <h1>Atefeh Rezaei</h1>
+      <div class="bio-block">
+        <img src="scan_pic_rezaei.jpg" alt="Atefeh Rezaei">
+        <p>
+          Ph.D. Candidate &amp; Research Engineer<br>
+          TU Berlin<br>
+          Berlin, Germany<br>
+          E-mail: <a href="mailto:atefeh.rezaei@ieee.org">atefeh.rezaei@ieee.org</a><br>
+          E-mail: <a href="mailto:rezaei@ccs-labs.org">rezaei@ccs-labs.org</a><br>
+        </p>
+      </div>
+
+      <h2>Research Interests</h2>
+      <ul>
+        <li><strong>6G wireless systems and Integrated Sensing and Communication (ISAC)</strong>, with emphasis on high-mobility mmWave networks</li>
+        <li><strong>Radar signal processing</strong>, including target detection and tracking using MUSIC, matched filtering, and extended Kalman filtering</li>
+        <li><strong>mmWave communications</strong>, including beam management, beam tracking, and channel estimation and prediction</li>
+        <li><strong>UAV-assisted wireless networks</strong>, including trajectory optimization and performance evaluation</li>
+        <li><strong>Optimization-based algorithm design</strong>, including resource allocation and finite blocklength communications</li>
+      </ul>
+
+      <h2>Selected Publications</h2>
+      <ul style="list-style-type: square;">
+        <li><strong>A. Rezaei</strong>, M. Carl, F. Dressler, "Mobility-Aware Interference-Coupled ISAC for Energy-Efficient Multi-Vehicle Tracking," <em>MSWiM 2026, Paris, France, Oct. 26–30, 2026.</em></li>
+        <li><strong>A. Rezaei</strong>, V. Jamali, F. Dressler, "Toward Enhanced Accuracy and Reliability of Sensing-Assisted Beam Tracking Frameworks in High-Mobility mmWave Networks," <em>under review (IEEE TMC), 2026.</em></li>
+        <li><strong>A. Rezaei</strong>, A. Khalili, F. Dressler, R. Schober, "A Novel Pulse Radar Framework for ISAC-FD-enabled URLLC Systems," <em>under review (IEEE TVT), 2026.</em></li>
+        <li>A. Khalili, <strong>A. Rezaei</strong>, D. Xu, F. Dressler, R. Schober, "Efficient UAV hovering, resource allocation, and trajectory design for ISAC with limited backhaul capacity," <em>IEEE Trans. on Wireless Commun., vol. 23, no. 11, pp. 17635–17650, Nov. 2024.</em></li>
+        <li>J. Jalali, A. Khalili, <strong>A. Rezaei</strong>, R. Berkvens, M. Weyn, and J. Famaey, "IRS-Based Energy Efficiency and Admission Control Maximization for IoT Users With Short Packet Lengths," <em>IEEE Transactions on Vehicular Technology, vol. 72, no. 9, pp. 12379-12384, Jun. 2023.</em></li>
+        <li><strong>A. Rezaei</strong>, A. Khalili, J. Jalali, H. Shafiei, Q. Wu, "Energy-efficient resource allocation and antenna selection for IRS-assisted multicell downlink networks," <em>IEEE Wireless Commun. Letters, vol. 11, no. 6, pp. 1229–1233, Jun. 2022.</em></li>
+        <li><strong>A. Rezaei</strong>, P. Azmi, N.M. Yamchi, M.R. Javan, H. Yanikomeroglu, "Robust resource allocation for cooperative MISO-NOMA-based heterogeneous networks," <em>IEEE Trans. on Commun., vol. 69, no. 6, pp. 3864–3878, Jun. 2021.</em></li>
+      </ul>
+      <div class="footer">Page last updated August 2026.</div>
+    </div>
+
+
+    <!-- ══ ABOUT ME ══ -->
+    <div id="page-about" class="page">
+      <h1>Atefeh Rezaei &ndash; About me</h1>
+      <p style="font-size:15px;">I am a Research Engineer and Ph.D. candidate at TU Berlin with 8+ years of experience in wireless communications,
+        radar signal processing, and Integrated Sensing and Communication (ISAC). I specialize in 6G wireless systems, mmWave communications,
+        beam management, channel prediction, target detection and tracking, and optimization-based algorithm design. I have developed and
+        evaluated MATLAB and Python simulation frameworks, collaborated on large-scale national research projects with industry and academic
+        partners, and designed algorithms for high-mobility wireless communication systems. I am the author of 12+ peer-reviewed IEEE
+        publications with over 300 citations.</p>
+
+      <h2>Research Interests and Background</h2>
+      <p style="font-size:15px; margin-bottom:6px;">My current research interests include:</p>
+      <ul>
+        <li><strong>6G wireless systems and Integrated Sensing and Communication (ISAC)</strong>, with emphasis on high-mobility mmWave networks</li>
+        <li><strong>Radar signal processing</strong>, including target detection and tracking using MUSIC, matched filtering, and extended Kalman filtering</li>
+        <li><strong>mmWave communications</strong>, including beam management, beam tracking, and channel estimation and prediction</li>
+        <li><strong>UAV-assisted wireless networks</strong>, including trajectory optimization and performance evaluation</li>
+        <li><strong>Optimization-based algorithm design</strong>, including resource allocation and finite blocklength communications</li>
+      </ul>
+      <p style="font-size:15px;">The core theoretical background required for carrying out successful research in these fast-developing fields is formed by: <strong>Wireless Communications</strong>, <strong>Radar and Signal Processing</strong>, <strong>Convex Optimization</strong>, <strong>Resource Allocation</strong>, and <strong>Machine Learning</strong>.</p>
+
+      <h2>Professional Experience</h2>
+      <ul>
+        <li><strong>Research Engineer, TU Berlin</strong> (2022–present)<br>
+          Developed algorithms for ISAC systems in high-mobility mmWave wireless environments in collaboration with Prof. Robert Schober and Prof. Vahid Jamali; designed and evaluated radar target detection and tracking algorithms; modeled and optimized UAV-assisted wireless networks; contributed to the German research projects XG-RIC, 6G-RIC, and RADCOM.</li>
+        <li><strong>Researcher, Tarbiat Modares University</strong> (2019–2022)<br>
+          Researched emerging 5G technologies including MIMO, NOMA, IoT, and IRS-assisted communication systems; collaborated with Prof. Qingqing Wu, Prof. Halim Yanikomeroglu, and Prof. Eduard Jorswieck; designed energy-efficient algorithms for wireless communication systems.</li>
+        <li><strong>Research Consultant, Iran Telecom Research Center</strong> (2017–2018)<br>
+          Analyzed 5G network architectures and resource allocation approaches, delivering technical reports on end-to-end optimization strategies.</li>
+        <li><strong>Designer and Developer, University Robotic Group</strong> (2011–2013)<br>
+          Designed tracked robots in collaboration with robotics lab projects.</li>
+      </ul>
+
+      <h2>Awards &amp; Grants</h2>
+      <ul>
+        <li><strong>Best Paper Award</strong>, IEEE WPMC, 2022</li>
+        <li><strong>Travel Grant</strong>, IEEE VTC, 2023</li>
+        <li>Ranked in the <strong>top 10%</strong> of the class during Bachelor's studies</li>
+      </ul>
+
+      <h2>Academic Service</h2>
+      <ul>
+        <li>Reviewer for IEEE TMC, TVT, TWC, ICC, VNC, and GLOBECOM</li>
+      </ul>
+
+      <div class="footer">Page last updated August 2026.</div>
+    </div>
+
+
+    <!-- ══ JOURNALS ══ -->
+    <div id="page-journals" class="page">
+      <h1>Atefeh Rezaei &ndash; Journals</h1>
+      <ol reversed>
+        <li>A. Khalili, <strong>A. Rezaei</strong>, D. Xu, F. Dressler, R. Schober, "Efficient UAV hovering, resource allocation, and trajectory design for ISAC with limited backhaul capacity," <em>IEEE Trans. on Wireless Commun., vol. 23, no. 11, pp. 17635–17650, Nov. 2024.</em></li>
+        <li>J. Jalali, A. Khalili, <strong>A. Rezaei</strong>, R. Berkvens, M. Weyn, and J. Famaey, "IRS-Based Energy Efficiency and Admission Control Maximization for IoT Users With Short Packet Lengths," <em>IEEE Transactions on Vehicular Technology, vol. 72, no. 9, pp. 12379-12384, Jun. 2023.</em></li>
+        <li><strong>A. Rezaei</strong>, A. Khalili, J. Jalali, H. Shafiei, Q. Wu, "Energy-efficient resource allocation and antenna selection for IRS-assisted multicell downlink networks," <em>IEEE Wireless Commun. Letters, vol. 11, no. 6, pp. 1229–1233, Jun. 2022.</em></li>
+        <li><strong>A. Rezaei</strong>, P. Azmi, N.M. Yamchi, M.R. Javan, H. Yanikomeroglu, "Robust resource allocation for cooperative MISO-NOMA-based heterogeneous networks," <em>IEEE Trans. on Commun., vol. 69, no. 6, pp. 3864–3878, Jun. 2021.</em></li>
+      </ol>
+      <p style="font-size:14px; color:#666;"><em>Manuscripts in preparation / under review, 2026:</em></p>
+      <ul>
+        <li><strong>A. Rezaei</strong>, Jorge Torres Gómez, "Energy-Efficient ISAC-Assisted Tracking Frameworks for High-Mobility mmWave Networks in the Finite Blocklength Regime," manuscript in preparation, 2026.</li>
+        <li><strong>A. Rezaei</strong>, Jorge Torres Gómez, "Resource Allocation Design for UAV-Enabled Integrated Sensing and Communication with Finite Blocklength," manuscript in preparation, 2026.</li>
+        <li><strong>A. Rezaei</strong>, V. Jamali, F. Dressler, "Toward Enhanced Accuracy and Reliability of Sensing-Assisted Beam Tracking Frameworks in High-Mobility mmWave Networks," under review (IEEE TMC), 2026.</li>
+        <li><strong>A. Rezaei</strong>, A. Khalili, F. Dressler, R. Schober, "A Novel Pulse Radar Framework for ISAC-FD-enabled URLLC Systems," under review (IEEE TVT), 2026.</li>
+      </ul>
+      <div class="footer">Page last updated August 2026.</div>
+    </div>
+
+
+    <!-- ══ CONFERENCES ══ -->
+    <div id="page-conferences" class="page">
+      <h1>Atefeh Rezaei &ndash; Conferences</h1>
+      <ol reversed>
+        <li><strong>A. Rezaei</strong>, M. Carl, F. Dressler, "Mobility-Aware Interference-Coupled ISAC for Energy-Efficient Multi-Vehicle Tracking," <em>MSWiM 2026, Paris, France, Oct. 26–30, 2026.</em></li>
+        <li>A. Khalili, <strong>A. Rezaei</strong>, D. Xu, R. Schober, "Energy-aware resource allocation and trajectory design for UAV-enabled ISAC," <em>IEEE GLOBECOM 2023.</em></li>
+        <li><strong>A. Rezaei</strong>, A. Khalili, F. Dressler, "Resource allocation for UAV-assisted industrial IoT user with finite blocklength," <em>IEEE VTC-Fall 2023.</em></li>
+        <li>J. Jalali, A. Khalili, <strong>A. Rezaei</strong>, J. Famaey, W. Saad, "Power-efficient Antenna Switching and Beamforming Design for Multi-User SWIPT with Non-Linear Energy Harvesting," <em>IEEE CCNC 2023.</em></li>
+        <li>A. Nouruzi, <strong>A. Rezaei</strong>, A. Khalili, N. Mokari, E.A. Jorswieck, H. Yanikomeroglu, "Smart Resource Allocation Model via Artificial Intelligence in Software-Defined 6G Networks," <em>IEEE ICC 2023.</em></li>
+        <li>J. Jalali, A. Khalili, <strong>A. Rezaei</strong>, J. Famaey, "Is Active IRS Useful for mmWave Wireless Networks or Not?" <em>IEEE ICNC 2023.</em></li>
+        <li>J. Jalali, <strong>A. Rezaei</strong>, A. Khalili, J. Famaey, "Power-efficient Joint Resource Allocation and Decoding Error Probability for Multiuser Downlink MISO with Finite Block Length Codes," <em>IEEE WPMC 2022.</em></li>
+      </ol>
+      <div class="footer">Page last updated August 2026.</div>
+    </div>
+
+
+    <!-- ══ BOOK CHAPTERS & THESES ══ -->
+    <div id="page-bookchapters" class="page">
+      <h1>Atefeh Rezaei &ndash; Book Chapters and Academic Theses</h1>
+      <ol reversed>
+        <li><strong>A. Rezaei</strong>, <em>Ph.D. Dissertation (in progress)</em>, Electrical Engineering, TU Berlin, Germany, 2022–present.</li>
+        <li><strong>A. Rezaei</strong>, <em>Master's thesis</em>, Electrical Engineering, Tarbiat Modares University, Tehran, Iran, 2016.</li>
+      </ol>
+      <div class="footer">Page last updated August 2026.</div>
+    </div>
+
+
+    <!-- ══ COURSES ══ -->
+    <div id="page-courses" class="page">
+      <h1>Atefeh Rezaei &ndash; Courses</h1>
+
+      <h2>Teaching Assistant Experience</h2>
+      <ul>
+        <li>Communication Systems</li>
+        <li>Signals and Systems</li>
+      </ul>
+
+      <div class="footer">Page last updated August 2026.</div>
+    </div>
+
+
+    <!-- ══ MEMBERS (Students) ══ -->
+    <div id="page-members" class="page">
+      <h1>Atefeh Rezaei &ndash; Members</h1>
+
+      <h2>Members</h2>
+      <ul>
+        <li>
+          <strong>Mathis Carl</strong><br>
+          Research area: <em>Optimized V2I Framework for Mobile Target Tracking via Integrated Sensing and Communication</em>
+        </li>
+        <!-- ADD MORE MEMBERS HERE -->
+      </ul>
+
+      <div class="footer">Page last updated August 2026.</div>
+    </div>
+
+
+  </div><!-- /layout-content -->
+</div><!-- /layout-wrapper -->
+
+<script>
+  function showPage(name) {
+    // Hide all pages
+    document.querySelectorAll('.page').forEach(function(p) {
+      p.classList.remove('active');
+    });
+    // Remove 'current' highlight from all nav links
+    document.querySelectorAll('#layout-menu a').forEach(function(a) {
+      a.classList.remove('current');
+    });
+    // Show selected page
+    var target = document.getElementById('page-' + name);
+    if (target) target.classList.add('active');
+    // Highlight active nav link
+    var navLink = document.getElementById('nav-' + name);
+    if (navLink) navLink.classList.add('current');
+    // On mobile, close the sidebar after navigation
+    document.getElementById('layout-menu').classList.remove('open');
+    window.scrollTo(0, 0);
+  }
+
+  function toggleMenu() {
+    document.getElementById('layout-menu').classList.toggle('open');
+  }
+
+  // Close sidebar if user clicks outside of it on mobile
+  document.addEventListener('click', function(e) {
+    var menu = document.getElementById('layout-menu');
+    var btn = document.getElementById('menu-toggle');
+    if (menu.classList.contains('open') && !menu.contains(e.target) && e.target !== btn) {
+      menu.classList.remove('open');
+    }
+  });
+</script>
+
+</body>
+</html>
