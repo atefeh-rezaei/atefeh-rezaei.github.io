@@ -186,6 +186,50 @@
       padding: 12px 16px;
     }
 
+    /* ── Poster gallery ── */
+    .poster-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin: 10px 0 20px 0;
+    }
+
+    .poster-card {
+      width: 220px;
+      border: 1px solid #dddddd;
+      border-radius: 4px;
+      padding: 10px;
+      background: #fafafa;
+      box-sizing: border-box;
+    }
+
+    .poster-card img {
+      width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .poster-card .poster-title {
+      font-weight: bold;
+      font-size: 14px;
+      color: #222;
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    .poster-card .poster-meta {
+      font-size: 13px;
+      color: #666;
+      font-style: italic;
+      margin-bottom: 6px;
+    }
+
+    .poster-card a.poster-link {
+      font-size: 13px;
+    }
+
     /* ── Footer ── */
     div.footer {
       font-size: 0.75em;
@@ -244,6 +288,8 @@
           id="nav-conferences">Conferences</a></div>
       <div class="menu-item"><a href="#" onclick="showPage('bookchapters');return false;" id="nav-bookchapters">Book
           Chapters &amp; Theses</a></div>
+      <div class="menu-item"><a href="#" onclick="showPage('posters');return false;" id="nav-posters">Posters</a>
+      </div>
 
       <!-- Part 3: Teaching -->
       <div class="menu-category">Teaching</div>
@@ -289,8 +335,10 @@
         <ul>
           <li><strong>6G Wireless Systems and Integrated Sensing and Communication (ISAC)</strong>: with emphasis on
             high-mobility mmWave and time-sensitive networks.</li>
-       <li><strong>Digital Signal Processing (DSP)</strong>: signal analysis, estimation, detection, filtering, and processing techniques for wireless communication and sensing systems.</li>
-        <li><strong>Radar Signal Processing</strong>: target detection, localization, and tracking using advanced signal processing and estimation techniques.</li>
+          <li><strong>Digital Signal Processing (DSP)</strong>: signal analysis, estimation, detection, filtering, and
+            processing techniques for wireless communication and sensing systems.</li>
+          <li><strong>Radar Signal Processing</strong>: target detection, localization, and tracking using advanced
+            signal processing and estimation techniques.</li>
           <li><strong>mmWave Communications</strong>: sensing-assisted beam management and tracking, channel estimation
             and prediction, and robust communication strategies under rapidly time-varying channel conditions.</li>
           <li><strong>UAV-Assisted Non-Terrestrial Networks</strong>: trajectory design, resource allocation, and
@@ -302,7 +350,7 @@
         <h2>Selected Publications</h2>
         <ul style="list-style-type: square;">
           <li><strong>A. Rezaei</strong>, M. Carl, F. Dressler, "Mobility-Aware Interference-Coupled ISAC for
-            Energy-Efficient Multi-Vehicle Tracking," <em>MSWiM 2026, Paris, France, Oct. 26–30, 2026.</em></li>
+            Energy-Efficient Multi-Vehicle Tracking," <em>MSWiM 2026, Paris, France, Oct. 26–30, 2026.</em> [<a href="https://www.tkn.tu-berlin.de/bib/rezaei2026mobility-aware/" target="_blank">link</a>]</li>
           <li><strong>A. Rezaei</strong>, V. Jamali, F. Dressler, "Toward Enhanced Accuracy and Reliability of
             Sensing-Assisted Beam Tracking Frameworks in High-Mobility mmWave Networks," <em>under review (IEEE TMC),
               2026.</em></li>
@@ -355,7 +403,8 @@
             development of reliable and energy-efficient communication–sensing frameworks for
             high-mobility and mmWave environments.
           </li>
-<li><strong>Digital Signal Processing (DSP)</strong>: signal analysis, estimation, detection, filtering, and processing techniques for wireless communication and sensing systems.</li>
+          <li><strong>Digital Signal Processing (DSP)</strong>: signal analysis, estimation, detection, filtering, and
+            processing techniques for wireless communication and sensing systems.</li>
 
           <li>
             <strong>Radar Signal Processing and Sensing</strong>:
@@ -449,8 +498,10 @@
         <p style="font-size:14px; color:#666;"><em>Manuscripts in preparation / under review, 2026:</em></p>
         <ul>
           <!-- <li><strong>A. Rezaei</strong>, "Digital Twin-Assisted Robust Predictive Beamforming for Energy-Efficient Multi-Vehicle ISAC in the Finite-Blocklength Regime," manuscript in preparation, 2026.</li>-->
-          <li><strong>A. Rezaei</strong>, "AI-Driven Digital Twin Framework for Finite Blocklength ISAC in
+          <li><strong>A. Rezaei</strong>, "AI-Assisted Framework for Finite Blocklength ISAC in
             Interference-Coupled Vehicular Networks," manuscript in preparation, 2026.</li>
+           <!--  <li><strong>A. Rezaei</strong>, "AI-Driven Digital Twin Framework for Finite Blocklength ISAC in
+            Interference-Coupled Vehicular Networks," manuscript in preparation, 2026.</li>-->
           <!-- <li><strong>A. Rezaei</strong>, Jorge Torres Gómez, "Resource Allocation Design for UAV-Enabled Integrated
             Sensing and Communication with Finite Blocklength," manuscript in preparation, 2026.</li>-->
           <li><strong>A. Rezaei</strong>, V. Jamali, F. Dressler, "Toward Enhanced Accuracy and Reliability of
@@ -468,7 +519,7 @@
         <h1>Atefeh Rezaei &ndash; Conferences</h1>
         <ol reversed>
           <li><strong>A. Rezaei</strong>, M. Carl, F. Dressler, "Mobility-Aware Interference-Coupled ISAC for
-            Energy-Efficient Multi-Vehicle Tracking," <em>MSWiM 2026, Paris, France, Oct. 26–30, 2026.</em></li>
+            Energy-Efficient Multi-Vehicle Tracking," <em>MSWiM 2026, Paris, France, Oct. 26–30, 2026.</em> [<a href="https://www.tkn.tu-berlin.de/bib/rezaei2026mobility-aware/" target="_blank">link</a>]</li>
           <li>A. Khalili, <strong>A. Rezaei</strong>, D. Xu, R. Schober, "Energy-aware resource allocation and
             trajectory design for UAV-enabled ISAC," <em>IEEE GLOBECOM 2023.</em></li>
           <li><strong>A. Rezaei</strong>, A. Khalili, F. Dressler, "Resource allocation for UAV-assisted industrial IoT
@@ -498,6 +549,31 @@
           <li><strong>A. Rezaei</strong>, <em>Master's thesis</em>, Electrical Engineering, Tarbiat Modares University,
             Tehran, Iran.</li>
         </ol>
+        <div class="footer">Page last updated August 2026.</div>
+      </div>
+
+
+      <!-- ══ POSTERS ══ -->
+      <div id="page-posters" class="page">
+        <h1>Atefeh Rezaei &ndash; Posters</h1>
+        <p style="font-size:15px;">Poster presentations at conferences and workshops.</p>
+
+        <div class="poster-grid">
+          <div class="poster-card">
+            <div class="poster-title">Toward Enhanced Accuracy of Sensing-Assisted Beam Tracking Frameworks in mmWave Networks</div>
+            <a class="poster-link" href="https://raw.githubusercontent.com/atefeh-rezaei/Posters/main/Poster_Atefeh_tracking_ISAC.pdf" target="_blank">View PDF</a>
+          </div>
+          <div class="poster-card">
+            <div class="poster-title">A Novel Framework for ISAC-FD-enabled URLLC Systems</div>
+            <a class="poster-link" href="https://raw.githubusercontent.com/atefeh-rezaei/Posters/main/ISAC_FD_URLLC.pdf" target="_blank">View PDF</a>
+          </div>
+          <div class="poster-card">
+            <div class="poster-title">Efficient UAV Hovering, Resource Allocation, and Trajectory Design for ISAC with Limited Backhaul Capacity</div>
+            <a class="poster-link" href="https://raw.githubusercontent.com/atefeh-rezaei/Posters/main/Efficient%20UAV%20Hovering.pdf" target="_blank">View PDF</a>
+          </div>
+          <!-- ADD MORE POSTER CARDS HERE -->
+        </div>
+
         <div class="footer">Page last updated August 2026.</div>
       </div>
 
