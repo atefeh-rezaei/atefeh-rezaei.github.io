@@ -230,6 +230,39 @@
       font-size: 13px;
     }
 
+    /* ── Photo gallery ── */
+    .gallery-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin: 10px 0 20px 0;
+    }
+
+    .gallery-card {
+      width: 190px;
+      border: 1px solid #c9a2ad;
+      border-radius: 4px;
+      padding: 6px;
+      background: #fafafa;
+      box-sizing: border-box;
+      box-shadow: 0 0 0 1px #c9a2ad;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+      border: 1px solid #ccc;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .gallery-card .gallery-caption {
+      font-size: 10.5px;
+      color: #555;
+      line-height: 1.35;
+    }
+
     /* ── Footer ── */
     div.footer {
       font-size: 0.75em;
@@ -279,6 +312,7 @@
       <div class="menu-item"><a href="#" onclick="showPage('home');return false;" id="nav-home" class="current">Home</a>
       </div>
       <div class="menu-item"><a href="#" onclick="showPage('about');return false;" id="nav-about">About me</a></div>
+      <div class="menu-item"><a href="#" onclick="showPage('gallery');return false;" id="nav-gallery">Gallery</a></div>
 
       <!-- Part 2: Publications -->
       <div class="menu-category">Publications</div>
@@ -306,8 +340,6 @@
           target="_blank">Google Scholar</a></div>
       <div class="menu-item"><a href="https://www.linkedin.com/in/atefeh--rezaei/" target="_blank">LinkedIn</a></div>
       <div class="menu-item"><a href="https://ieeexplore.ieee.org/author/37086064575" target="_blank">IEEE Xplore</a>
-      </div>
-      <div class="menu-item"><a href="https://www.tkn.tu-berlin.de/team/rezaei/" target="_blank">TU Berlin Profile</a>
       </div>
     </div><!-- /sidebar -->
 
@@ -357,7 +389,9 @@
             Sensing-Assisted Beam Tracking Frameworks in High-Mobility mmWave Networks," <em>under review (IEEE TVT),
               2026.</em></li>
           <li><strong>A. Rezaei</strong>, A. Khalili, F. Dressler, R. Schober, "A Novel Pulse Radar Framework for
-            ISAC-FD-enabled URLLC Systems," <em>under review (IEEE TVT), 2026.</em></li>
+            ISAC-FD-enabled URLLC Systems," <em>under review (IEEE TVT), 2026.</em> [<a
+              href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=ghAYlK8AAAAJ&amp;sortby=pubdate&amp;citation_for_view=ghAYlK8AAAAJ:LkGwnXOMwfcC"
+              target="_blank">link</a>]</li>
           <li>A. Khalili, <strong>A. Rezaei</strong>, D. Xu, F. Dressler, R. Schober, "Efficient UAV hovering, resource
             allocation, and trajectory design for ISAC with limited backhaul capacity," <em>IEEE Trans. on Wireless
               Commun., vol. 23, no. 11, pp. 17635–17650, Nov. 2024.</em></li>
@@ -480,6 +514,55 @@
       </div>
 
 
+      <!-- ══ GALLERY ══ -->
+      <div id="page-gallery" class="page">
+        <h1>Atefeh Rezaei &ndash; Gallery</h1>
+        <p style="font-size:15px;">Snapshots from conferences, research clusters, and demos.</p>
+
+        <div class="gallery-grid">
+          <div class="gallery-card">
+            <img src="gallery/gallery-robert-group.jpg" alt="With Prof. Robert Schober and Prof. Vahid Jamali">
+            <div class="gallery-caption">With Prof. Robert Schober and Prof. Vahid Jamali, 6G Conference, Berlin.</div>
+          </div>
+          <div class="gallery-card">
+            <img src="gallery/gallery-heath.jpg" alt="With Robert Heath at IEEE VTC2023-Fall">
+            <div class="gallery-caption">With Prof. Robert Heath (Plenary Speaker), IEEE VTC-Fall, Hong
+              Kong.</div>
+          </div>
+          <div class="gallery-card">
+            <img src="gallery/gallery-presentation.jpg" alt="Presenting at IEEE VTC2023-Fall">
+            <div class="gallery-caption">Presenting "UAV-assisted industrial IoT user," IEEE VTC2023-Fall, Hong
+              Kong.</div>
+          </div>
+          <div class="gallery-card">
+            <img src="gallery/gallery-vtc2023.jpg" alt="At IEEE VTC2023-Fall, Hong Kong">
+            <div class="gallery-caption">At IEEE VTC-Fall, Hong Kong, presenting as an author.</div>
+          </div>
+          <div class="gallery-card">
+            <img src="gallery/gallery-6gric-stage.jpg" alt="xG-RIC Advisory Board Meeting">
+            <div class="gallery-caption">With the 6G-RIC Research and Innovation Cluster team at Advisory Board Meeting,
+              Berlin.</div>
+          </div>
+          <div class="gallery-card">
+            <img src="gallery/gallery-robot-demo.jpg" alt="xG-RIC Advisory Board Meeting">
+            <div class="gallery-caption">6G-RIC Advisory Board Meeting (demo booth), Berlin.</div>
+          </div>
+          <div class="gallery-card">
+            <img src="gallery/gallery-xgric-booth.jpg" alt="At the xG-RIC booth with the drone demo">
+            <div class="gallery-caption">With the xG-RIC Research and Innovation Cluster team at the drone-based
+              sensing demo booth.</div>
+          </div>
+          <div class="gallery-card">
+            <img src="gallery/gallery-team-outdoor.jpg" alt="Research Retreat">
+            <div class="gallery-caption">Research Retreat 2025.</div>
+          </div>
+          <!-- ADD MORE GALLERY CARDS HERE -->
+        </div>
+
+        <div class="footer">Page last updated September 2026.</div>
+      </div>
+
+
       <!-- ══ JOURNALS ══ -->
       <div id="page-journals" class="page">
         <h1>Atefeh Rezaei &ndash; Journals</h1>
@@ -510,7 +593,9 @@
             Sensing-Assisted Beam Tracking Frameworks in High-Mobility mmWave Networks," under review (IEEE TVT), 2026.
           </li>
           <li><strong>A. Rezaei</strong>, A. Khalili, F. Dressler, R. Schober, "A Novel Pulse Radar Framework for
-            ISAC-FD-enabled URLLC Systems," under review (IEEE TVT), 2026.</li>
+            ISAC-FD-enabled URLLC Systems," under review (IEEE TVT), 2026. [<a
+              href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=ghAYlK8AAAAJ&amp;sortby=pubdate&amp;citation_for_view=ghAYlK8AAAAJ:LkGwnXOMwfcC"
+              target="_blank">link</a>]</li>
         </ul>
         <div class="footer">Page last updated August 2026.</div>
       </div>
@@ -538,7 +623,8 @@
           <li>J. Jalali, <strong>A. Rezaei</strong>, A. Khalili, J. Famaey, "Power-efficient Joint Resource Allocation
             and Decoding Error Probability for Multiuser Downlink MISO with Finite Block Length Codes," <em>IEEE WPMC
               2022.</em></li>
-             <li><strong>A. Rezaei</strong>, N. Mokari, P. Azmi, "Robust resource allocation in cloud-RAN network based on CoMP technology," <em>IST 2016.</em></li>
+          <li><strong>A. Rezaei</strong>, N. Mokari, P. Azmi, "Robust resource allocation in cloud-RAN network based on
+            CoMP technology," <em>IST 2016.</em></li>
         </ol>
 
         <p style="font-size:14px; color:#666;"><em>Technical Reports:</em></p>
